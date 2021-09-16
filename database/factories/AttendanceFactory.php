@@ -22,7 +22,10 @@ class AttendanceFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'room' => $this->faker->numberBetween(1, 13),
+            'complaint' => $this->faker->sentence(),
+            'procedure' => $this->faker->sentence(),
+            'hour' => $this->faker->dateTimeThisYear(),
         ];
     }
 }
