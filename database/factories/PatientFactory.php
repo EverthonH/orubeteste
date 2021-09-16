@@ -22,7 +22,14 @@ class PatientFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'cpf'=>$this->faker->unique()->cpf(),
+            'age'=>$this->faker->numberBetween(18, 50),
+            'height'=>$this->faker->randomFloat(2, 120, 200),
+            'cell_phone'=>$this->faker->cellphoneNumber(),
+            'health_insurance'=>$this->faker->randomElement(['Unimed', 'Hapvida', 'Não possui']),
+            'weight'=>$this->faker->randomFloat(2, 40000, 200000),
+            'blood_type'=>$this->faker->randomElement(['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-']),
+            'comment'=>$this->faker->sentence(),
         ];
     }
 }
