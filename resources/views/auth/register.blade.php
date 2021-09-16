@@ -30,13 +30,7 @@
 
                 <x-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" :value="old('cpf')" required autofocus />
             </div>
-            <!-- crm -->
-            <div class="mt-4">
-                <x-label for="crm" :value="__('CRM')" />
-
-                <x-input id="crm" class="block mt-1 w-full" type="text" name="crm" :value="old('crm')" required autofocus />
-            </div>
-            <!-- crm -->
+            <!-- Idade -->
             <div class="mt-4">
                 <x-label for="age" :value="__('Idade')" />
 
