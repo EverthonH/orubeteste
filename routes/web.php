@@ -25,4 +25,6 @@ Route::get('/dashboard', function () {
 
 Route::get('/list/doctors', [DoctorController::class, 'show'])->middleware(['auth'])->name('list_doctors');
 
+Route::get('/list/patients', [PatientController::class, 'show'])->middleware(['auth'])->name('list_patients');
+
 require __DIR__.'/auth.php';
