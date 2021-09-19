@@ -31,8 +31,14 @@ Route::get('/list/patients', [PatientController::class, 'show'])->middleware(['a
 
 Route::get('/create/doctor', [DoctorController::class, 'create'])->middleware(['auth'])->name('create_doctor');
 
+Route::post('/store/doctor', [DoctorController::class, 'store'])->middleware(['auth'])->name('store_doctor');
+
 Route::get('/create/patient', [PatientController::class, 'create'])->middleware(['auth'])->name('create_patient');
 
+Route::post('/store/patient', [PatientController::class, 'store'])->middleware(['auth'])->name('store_patient');
+
 Route::get('/create/attendance', [AttendanceController::class, 'create'])->middleware(['auth'])->name('create_attendance');
+
+Route::post('/store/attendance', [AttendanceController::class, 'store'])->middleware(['auth'])->name('store_attendance');
 
 require __DIR__.'/auth.php';
