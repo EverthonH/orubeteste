@@ -5,7 +5,7 @@ if($entity == 'attendances'){
     $list = \App\Models\Attendance::all();
 }elseif($entity == 'doctors'){
     $list = \App\Models\Doctor::all();
-}else{
+}elseif($entity == 'patients'){
     $list = \App\Models\Patient::all();
 }
 @endphp
@@ -24,7 +24,7 @@ if($entity == 'attendances'){
         @else
             <div>Paciente</div>
             <div>CPF</div>
-            <div>Idade</div>
+            <div>Nascimento</div>
         @endif
             <div class="text-center">Ações</div>
     </div>
@@ -41,7 +41,7 @@ if($entity == 'attendances'){
         @else
             <div>{{$element->name}}</div>
             <div>{{$element->cpf}}</div>
-            <div>{{$element->age}} anos</div>
+            <div>{{$element->birth}}</div>
         @endif
         {{-- Ações --}}
         <div class="grid grid-cols-3 m-auto gap-3 ">
