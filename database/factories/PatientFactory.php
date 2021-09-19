@@ -23,7 +23,7 @@ class PatientFactory extends Factory
     {
         return [
             'cpf'=>$this->faker->unique()->cpf(),
-            'age'=>$this->faker->numberBetween(18, 50),
+            'birth'=>$this->faker->date(),
             'height'=>$this->faker->randomFloat(2, 120, 200),
             'cell_phone'=>$this->faker->cellphoneNumber(),
             'health_insurance'=>$this->faker->randomElement(['Unimed', 'Hapvida', 'Não possui']),

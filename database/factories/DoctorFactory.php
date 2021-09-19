@@ -31,7 +31,7 @@ class DoctorFactory extends Factory
             'name' => $this->faker->name(),
             'cpf'=>$this->faker->unique()->cpf(),
             'crm' => $this->faker->numerify('##########/' . $states[array_rand($states)]),
-            'age'=>$this->faker->numberBetween(18, 50),
+            'birth'=>$this->faker->date(),
             'cell_phone'=>$this->faker->cellphoneNumber(),
             'email' => $this->faker->unique()->safeEmail(),
         ];
