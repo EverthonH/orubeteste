@@ -144,7 +144,7 @@
                 <x-label for="doctor_cpf" :value="__('Médico')" />
                 <select id="doctor_cpf" class="block mt-1 w-full text-black" type="text" name="doctor_cpf" required>
                     <option>-----</option>
-                    @foreach (App\Models\Doctor::all() as $doctor)
+                    @foreach (App\Models\Doctor::orderBy('name', 'asc')->get() as $doctor)
                         @if($doctor->delete == false)
                             <option>{{ $doctor->name . " / " . $doctor->cpf }}</option>
                         @endif
@@ -156,7 +156,7 @@
                 <x-label for="patient_cpf" :value="__('Paciente')" />
                 <select id="patient_cpf" class="block mt-1 w-full mb-3" type="text" name="patient_cpf" required >
                     <option>-----</option>
-                    @foreach (App\Models\Patient::all() as $patient)
+                    @foreach (App\Models\Patient::orderBy('name', 'asc')->get() as $patient)
                         @if($patient->delete == false)
                             <option>{{ $patient->name . " / " . $patient->cpf }}</option>
                         @endif

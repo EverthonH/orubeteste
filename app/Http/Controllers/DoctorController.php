@@ -9,8 +9,7 @@ class DoctorController extends Controller
 {
     public function show()
     {
-        $doctors_list = Doctor::all();
-        return view('dashboard', ['doctors_list' => $doctors_list]);
+        return view('dashboard', ['doctors_list' => true]);
     }
     public function create()
     {

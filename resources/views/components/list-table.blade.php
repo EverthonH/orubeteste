@@ -2,13 +2,13 @@
 
 @php
 if($entity == 'attendances'){
-    $list = \App\Models\Attendance::all();
+    $list = \App\Models\Attendance::orderBy('hour', 'desc')->get();
     $delete = 'delete_attendance';
 }elseif($entity == 'doctors'){
-    $list = \App\Models\Doctor::all();
+    $list = \App\Models\Doctor::orderBy('name', 'asc')->get();
     $delete = 'delete_doctor';
 }elseif($entity == 'patients'){
-    $list = \App\Models\Patient::all();
+    $list = \App\Models\Patient::orderBy('name', 'asc')->get();
     $delete = 'delete_patient';
 }
 @endphp
