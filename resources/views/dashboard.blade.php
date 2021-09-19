@@ -9,7 +9,7 @@ if(isset($doctors_list)) {
 @endphp
 
 @php
-   if(isset($create_doctor)) {
+if(isset($create_doctor)) {
     $prop_register = 'doctor';
 } elseif(isset($create_patient)) {
     $prop_register = 'patient';
@@ -20,17 +20,17 @@ if(isset($doctors_list)) {
 
 <x-app-layout>
     <x-slot name="header"> 
-        <div x-data="{doctors: false, patients: false}">
+        <div x-data="{doctors: false, patients: false, attendances: false}">
             <div class="text-blue-700">   
-                <span x-on:click="patients = false; doctors = ! doctors" x-bind:class="{'bg-blue-500  text-white': doctors}" class="cursor-pointer bg-transparent hover:bg-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ">
+                <span x-on:click="patients = false; attendances = false; doctors = ! doctors" x-bind:class="{'bg-blue-500  text-white': doctors}" class="cursor-pointer bg-transparent hover:bg-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ">
                     Médicos
                 </span>
-                <span x-on:click="doctors = false; patients = ! patients" x-bind:class="{'bg-blue-500 text-white': patients}" class="cursor-pointer bg-transparent hover:bg-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ml-3">
+                <span x-on:click="doctors = false; attendances = false; patients = ! patients" x-bind:class="{'bg-blue-500 text-white': patients}" class="cursor-pointer bg-transparent hover:bg-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ml-3">
                     Pacientes
                 </span>
-                <a href="{{route('create_attendance')}}" class="cursor-pointer bg-transparent hover:bg-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ml-3">
-                    Agendar atendimento
-                </a>
+                <span x-on:click="doctors = false; patients = false; attendances = ! attendances" x-bind:class="{'bg-blue-500 text-white': attendances}" class="cursor-pointer bg-transparent hover:bg-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ml-3">
+                    Atendimentos
+                </span>
             </div>
             <div x-show="doctors" class="mt-8 h-full">
                 <a href="{{route('create_doctor')}}" class="cursor-pointer bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"> Registrar médico</a>
@@ -39,6 +39,10 @@ if(isset($doctors_list)) {
             <div x-show="patients" class="mt-8 h-full">
                 <a href="{{route('create_patient')}}" class="cursor-pointer bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"> Registrar paciente</a>
                 <a href="{{route('list_patients')}}" class="cursor-pointer bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ml-3"> Lista de pacientes</a>
+            </div>
+            <div x-show="attendances" class="mt-8 h-full">
+                <a href="{{route('create_attendance')}}" class="cursor-pointer bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Registrar atendimento</a>
+                <a href="{{route('dashboard')}}" class="cursor-pointer bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ml-3">Lista de atendimentos</a>
             </div>
         </div>
     </x-slot>
