@@ -129,10 +129,15 @@
                 <x-label for="procedure" :value="__('Procedimentos realizado')" />
                 <x-input id="procedure" class="block mt-1 w-full" type="text" name="procedure" placeholder="Ex: Cirurgia, entre outros" :value="old('procedure')" required autofocus />
             </div>
+            <!-- Date -->
+            <div class="mt-4">
+                <x-label for="date" :value="__('Data')" />
+                <x-input id="date" class="block mt-1 w-full" type="date" name="date" :value="old('date')" required autofocus />
+            </div>
             <!-- Hour -->
             <div class="mt-4">
-                <x-label for="hour" :value="__('Data')" />
-                <x-input id="hour" class="block mt-1 w-full" type="date" name="hour" :value="old('hour')" required autofocus />
+                <x-label for="hour" :value="__('Horário')" />
+                <x-input id="hour" class="block mt-1 w-full" type="time" name="hour" :value="old('hour')" required autofocus />
             </div>
             <!-- Doctor_CPF -->
             <div class="mt-4">
