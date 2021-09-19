@@ -50,4 +50,26 @@ class AttendanceController extends Controller
         $attendance->delete();
         return redirect('dashboard');
     }
+    public function update(Request $request, Attendance $attendance) {
+
+        $doctor_selected = explode(' / ', $request->doctor_cpf);
+        $cpf_doctor = $doctor_selected[1];
+        $patient_selected = explode(' / ', $request->patient_cpf);
+        $cpf_patient = $patient_selected[1];
+        
+        $doctor = DB::table('doctors')->where('cpf', $cpf_doctor)->get();
+        $patient = DB::table('patients')->where('cpf', $cpf_patient)->get();
+
+        $attendance->update([
+            'room' => $request->room,
+            'complaint' => $request->complaint,
+            'procedure' => $request->procedure,
+            'hour' => $request->date . ' ' . $request->hour,
+            'user_id' => Auth::user()->id,
+            'doctor_id' => $doctor[0]->id,
+            'patient_id' => $patient[0]->id,
+        ]);
+
+        return redirect('dashboard');
+    }
 }

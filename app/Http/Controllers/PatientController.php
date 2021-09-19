@@ -53,4 +53,22 @@ class PatientController extends Controller
         $patient->delete();
         return redirect('/list/patients');
     }
+
+    public function update(Request $request, Patient $patient) {
+
+        $patient->update([
+            'name'=> $request->name,
+            'birth'=> $request->birth,
+            'sex'=> $request->sex,
+            'height'=> $request->height,
+            'health_insurance'=> $request->health_insurance,
+            'weight'=> $request->weight,
+            'blood_type'=> $request->blood_type,
+            'cell_phone'=> $request->cell_phone,
+            'comment'=> $request->comment,
+        ]);
+
+        return redirect('/list/patients');
+
+    }
 }

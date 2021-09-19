@@ -43,5 +43,17 @@ class DoctorController extends Controller
 
         return redirect('/list/doctors');
     }
+    public function update(Request $request, Doctor $doctor) {
+
+        $doctor->update([
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'birth'=> $request->birth,
+            'cell_phone'=> $request->cell_phone,
+        ]);
+
+        return redirect('/list/doctors');
+
+    }
 
 }
