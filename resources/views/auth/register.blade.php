@@ -30,11 +30,11 @@
 
                 <x-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" :value="old('cpf')" required autofocus />
             </div>
-            <!-- Idade -->
+            <!-- birth -->
             <div class="mt-4">
-                <x-label for="age" :value="__('Idade')" />
+                <x-label for="birth" :value="__('Idade')" />
 
-                <x-input id="age" class="block mt-1 w-full" type="date" name="age" :value="old('age')" required autofocus />
+                <x-input id="birth" class="block mt-1 w-full" type="date" name="birth" :value="old('birth')" required autofocus />
             </div>
             <!-- Password -->
             <div class="mt-4">
