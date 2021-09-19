@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\AttendanceController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +28,11 @@ Route::get('/dashboard', function () {
 Route::get('/list/doctors', [DoctorController::class, 'show'])->middleware(['auth'])->name('list_doctors');
 
 Route::get('/list/patients', [PatientController::class, 'show'])->middleware(['auth'])->name('list_patients');
+
+Route::get('/create/doctor', [DoctorController::class, 'create'])->middleware(['auth'])->name('create_doctor');
+
+Route::get('/create/patient', [PatientController::class, 'create'])->middleware(['auth'])->name('create_patient');
+
+Route::get('/create/attendance', [AttendanceController::class, 'create'])->middleware(['auth'])->name('create_attendance');
 
 require __DIR__.'/auth.php';
