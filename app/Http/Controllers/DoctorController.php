@@ -37,5 +37,11 @@ class DoctorController extends Controller
 
         return redirect('dashboard');
     }
+    public function destroy(Doctor $doctor) {
+        $doctor->delete = true;
+        $doctor->save();
+
+        return redirect('/list/doctors');
+    }
 
 }

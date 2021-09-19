@@ -45,4 +45,9 @@ class AttendanceController extends Controller
         ]);
         return redirect('dashboard');
     }
+    public function destroy(Attendance $attendance) {
+
+        $attendance->delete();
+        return redirect('dashboard');
+    }
 }

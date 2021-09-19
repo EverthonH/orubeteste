@@ -47,4 +47,10 @@ class PatientController extends Controller
 
         return redirect('dashboard');
     }
+
+    public function destroy(Patient $patient) {
+
+        $patient->delete();
+        return redirect('/list/patients');
+    }
 }
